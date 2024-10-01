@@ -8,10 +8,10 @@ body {
     margin: 0;
     font-family: 'Roboto', sans-serif;
     color: #444;
-  }
-  
-  /* Container for the BMI calculator */
-  .bmi-container {
+}
+
+/* Container for the BMI calculator */
+.bmi-container {
     display: flex;
     flex-direction: row;
     background-color: #fff;
@@ -21,49 +21,49 @@ body {
     width: 90%;
     max-width: 800px;
     transition: transform 0.4s ease-in-out, box-shadow 0.3s ease;
-  }
-  
-  .bmi-container:hover {
+}
+
+.bmi-container:hover {
     transform: translateY(-15px);
     box-shadow: 0 12px 40px rgba(0, 0, 0, 0.3);
-  }
-  
-  /* Input and output sections */
-  .input-section, .output-section {
+}
+
+/* Input and output sections */
+.input-section, .output-section {
     flex: 1;
     margin: 0 20px;
-  }
-  
-  /* Responsive adjustments for smaller screens */
-  @media (max-width: 768px) {
+}
+
+/* Responsive adjustments for smaller screens */
+@media (max-width: 768px) {
     .bmi-container {
-      flex-direction: column;
-      width: 95%;
+        flex-direction: column;
+        width: 95%;
     }
-  
+
     .input-section, .output-section {
-      margin: 10px 0;
+        margin: 10px 0;
     }
-  }
-  
-  /* Headings */
-  h2 {
+}
+
+/* Headings */
+h2 {
     text-align: center;
     margin-bottom: 20px;
     font-weight: bold;
     color: #333;
-  }
-  
-  /* Label styling */
-  label {
+}
+
+/* Label styling */
+label {
     display: block;
     margin-top: 10px;
     font-size: 16px;
     font-weight: 500;
-  }
-  
-  /* Input and select fields */
-  input, select {
+}
+
+/* Input and select fields */
+input, select {
     width: 100%;
     padding: 10px;
     margin-top: 5px;
@@ -72,24 +72,24 @@ body {
     border: 1px solid #ddd;
     font-size: 16px;
     transition: border-color 0.3s;
-  }
-  
-  input:focus, select:focus {
+}
+
+input:focus, select:focus {
     border-color: #ff6f61;
-  }
-  
-  /* Radio buttons styling */
-  input[type="radio"] {
+}
+
+/* Radio buttons styling */
+input[type="radio"] {
     margin-right: 10px;
-  }
-  
-  input[type="radio"] + label {
+}
+
+input[type="radio"] + label {
     margin-right: 15px;
     font-size: 16px;
-  }
-  
-  /* Button styling */
-  button {
+}
+
+/* Button styling */
+button {
     width: 100%;
     padding: 12px;
     background-color: #ff6f61;
@@ -100,39 +100,56 @@ body {
     font-weight: bold;
     cursor: pointer;
     transition: background-color 0.3s ease, transform 0.2s ease;
-  }
-  
-  button:hover {
+}
+
+button:hover {
     background-color: #e95d52;
     transform: scale(1.05);
-  }
-  
-  /* BMI result styling */
-  .output-section {
+}
+
+/* Loader styling */
+.loader {
+    border: 8px solid #f3f3f3; /* Light grey */
+    border-top: 8px solid #3498db; /* Blue */
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    animation: spin 2s linear infinite;
+    display: none; /* Hidden by default */
+    margin: 20px auto;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* BMI result styling */
+.output-section {
     text-align: center;
-  }
-  
-  .bmi-result {
+}
+
+.bmi-result {
     margin-top: 20px;
     animation: fadeIn 1.5s ease;
-  }
-  
-  #bmi-value {
+}
+
+#bmi-value {
     font-size: 32px;
     font-weight: bold;
     color: #333;
     margin-bottom: 10px;
-  }
-  
-  #bmi-category {
+}
+
+#bmi-category {
     margin-top: 10px;
     font-size: 20px;
     color: #555;
     font-weight: bold;
-  }
-  
-  /* BMI range bar */
-  #bmi-range {
+}
+
+/* BMI range bar */
+#bmi-range {
     display: flex;
     margin: 10px auto;
     height: 35px;
@@ -140,10 +157,10 @@ body {
     border-radius: 5px;
     overflow: hidden;
     background: linear-gradient(to right, #ffca28, #66bb6a, #ffa726, #f44336);
-  }
-  
-  /* Each segment for BMI categories */
-  .range-segment {
+}
+
+/* Each segment for BMI categories */
+.range-segment {
     flex: 1;
     display: flex;
     justify-content: center;
@@ -151,19 +168,71 @@ body {
     color: white;
     font-size: 14px;
     font-weight: bold;
-  }
-  
-  .range-segment:not(:last-child) {
+}
+
+.range-segment:not(:last-child) {
     margin-right: 2px;
-  }
-  
-  /* Animation for the result */
-  @keyframes fadeIn {
+}
+
+/* Animation for the result */
+@keyframes fadeIn {
     from {
-      opacity: 0;
+        opacity: 0;
     }
     to {
-      opacity: 1;
+        opacity: 1;
     }
-  }
-  
+}
+
+/* Tooltip styling */
+.tooltip {
+    position: relative;
+    display: inline-block;
+}
+
+.tooltip .tooltiptext {
+    visibility: hidden;
+    width: 120px;
+    background-color: #555;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 0;
+    position: absolute;
+    z-index: 1;
+    bottom: 125%; /* Position above the text */
+    left: 50%;
+    margin-left: -60px;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.tooltip:hover .tooltiptext {
+    visibility: visible;
+    opacity: 1;
+}
+
+/* Accessibility features */
+input:focus, select:focus, button:focus {
+    outline: 3px solid #ffca28; /* High contrast outline */
+}
+
+/* Responsive adjustments for very small screens */
+@media (max-width: 480px) {
+    .bmi-container {
+        padding: 15px;
+    }
+
+    button {
+        padding: 10px;
+        font-size: 14px;
+    }
+
+    #bmi-value {
+        font-size: 28px;
+    }
+
+    #bmi-category {
+        font-size: 18px;
+    }
+}
