@@ -1,11 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <!--<meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>BMI Calculator</title>-->
   <link rel="stylesheet" href="./source/style.css">
-  <!--<meta name="theme-color" content="#ff6f61">-->
 </head>
 <body>
   <div class="bmi-container">
@@ -46,13 +42,8 @@
     <div class="output-section">
       <h2>BMI Result</h2>
       <div id="bmi-result">
-        <div id="bmi-value"></div>
-        <div id="bmi-range">
-          <div class="range-segment underweight">Underweight</div>
-          <div class="range-segment normal">Normal</div>
-          <div class="range-segment overweight">Overweight</div>
-          <div class="range-segment obese">Obese</div>
-        </div>
+        <div id="bmi-value">Your BMI: <span id="bmi-display"></span></div>
+        <meter id="bmi-meter" min="0" max="40" low="18.5" high="24.9" optimum="21" value="0"></meter>
         <div id="bmi-category"></div>
       </div>
     </div>
